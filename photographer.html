@@ -5,164 +5,197 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
     <title>Fisheye - photographe </title>
   </head>
 
   <body>
-    <header>
+    <!--header-->
+    <header class="header" role="banner">
       <a id="logo" aria-label="Fisheye" href="index.html" title="HomePage">
         <img role="img" alt="Logo de Fisheye" class="logo_top" src="assets/images/logo.png"/></a>
     </header>
 
     <main id="main" class="content">
-      <section class="photograph_info">
-        <div>
-          <h2 class="photographer_name">Mimi Keel</h2>
-          <h3 class="photographer_city">London</h3>
-          <p class="photographer_tagline"><strong>Voir le beau dans le quotidien</strong></p>
+    <!--information from the homepage-->
+      <section class="photograph_identity" aria-label="photographer information">
+        <div class="contact_details">
+          <h2 class="photograph_name">Mimi Keel</h2>
+          <div>
+          <div class ="photograph_inf">
+            <h3 class="photograph_city">London, UK</h3>
+            <p class="photograph_tagline">Voir le beau dans le quotidien</p>
+          </div>
+          <div class="photograph-header">
+            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          </div>
+          </div>
         </div>
 
-        <div class="photograph-header">
-          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        </div>
+        
 
         <div class="photographer_img">
-          <a><img class="photographer_img" alt="" src="assets/Sample Photos/Mimi/Portrait_Nora.jpg"/></a>
+          <a><img class="photographer_img" alt="" src="assets/photographers/MimiKeel.jpg"/></a>
         </div>
       </section>
 
-      <section class="work_presentation">
-        <div>
-          <span>Trier par</span>
-          <div>
-              <button>Popularité</button>
-              <ul>
-                  <li role='option'>Popularité</li>
-                  <li role='option'>Date</li>
-                  <li role='option'>Tître</li>                
-              </ul>
-          </div>
+      <!--dropdown menu-->
+      <nav id="scrolling_menu">
+        <div class="container_scrolling">
+          <span id="choice_list">Trier par</span>
+            <button class="choice_button" aria-haspopup="listbox">Popularité</button>
+            <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
+            <ul class="multiple_choice" role="listbox">
+              <li class="choice" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span</li>
+              <li class="choice" role='option'>Date</li>
+              <li class="choice" role='option'>Titre</li>                
+            </ul>
+        </div>
+      </nav>
+
+      <!--price-->
+      <div id="box" aria-label="photographer likes and price">
+        <p>297 081</p><i class="fas fa-heart"></i>
+        <p>300€/jour</p>
+      </div>
+
+      <!--photographer's gallery-->
+      <section class="container_gallery" aria-label="photograper works">
+        <div class="bloc_photo">
+          <a href="assets/Sample Photos/Mimi/Animals_Rainbow.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="Arc-en-cie"/>
+              
+            <div class="text_photo">
+              <h3>Arc-en-cie</h3>
+              <p>11 <i class="fas fa-heart"></i></p>
+            </div>
+          </a>
+        </div>
+              
+        <div class="bloc_photo">
+          <a href="assets/Sample Photos/Mimi/Travel_Lonesome.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Travel_Lonesome.jpg" alt="Solitude"/>
+
+            <div class="text_photo">
+              <h3>Solitude  <!--un petit coeur à rajouter--></h3>
+            </div>
+          </a>
         </div>
 
-        <div class="container_gallery"><!--galerie du photographe-->
-          <div class="bloc_photo">
-            <a href="assets/Sample Photos/Mimi/Animals_Rainbow.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="Arc-en-cie"/>
-              
-              <div class="text_photo">
-                <h3>Arc-en-cie  <!--un petit coeur à rajouter--></h3>
-              </div>
-            </a>
-          </div>
-              
-          <div class="bloc_photo">
-            <a href="assets/Sample Photos/Mimi/Travel_Lonesome.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Travel_Lonesome.jpg" alt="Solitude"/>
+        <div class="bloc_photo">
+          <a href="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg" alt="Mariage à la mer"/>
 
-              <div class="text_photo">
-                <h3>Solitude  <!--un petit coeur à rajouter--></h3>
-              </div>
-            </a>
-          </div>
-
-          <div class="bloc_photo">
-            <a href="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg" alt="Mariage à la mer"/>
-
-              <div class="text_photo">
-                <h3>Mariage à la mer <!--un petit coeur à rajouter--></h3>
-              </div>
-            </a>
-          </div>
-
-          <div class="bloc_photo">
-            <a href="assets/Sample Photos/Mimi/Portrait_Background.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Background.jpg" alt="Portrait"/>
-
-              <div class="text_photo">
-                <h3>Portait <!--un petit coeur à rajouter--></h3>
-              </div>
-            </a>
-          </div>
-
-          <div class="bloc_photo">
-            <a href="assets/Sample Photos/Mimi/Event_PintoWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_PintoWedding.jpg" alt="Mariage"/>
-
-              <div class="text_photo">
-                <h3>Mariage <!--un petit coeur à rajouter--></h3>
-              </div>
-            </a>
-          </div> 
-
-          <div class="bloc_photo">
-            <a href="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg" alt="Portrait"/>
-
-              <div class="text_photo">
-                <h3>Portrait <!--un petit coeur à rajouter--></h3>
-              </div>
-            </a>
-          </div
-
+            <div class="text_photo">
+              <h3>Mariage à la mer <!--un petit coeur à rajouter--></h3>
+            </div>
+          </a>
         </div>
+
+        <div class="bloc_photo">
+          <a href="assets/Sample Photos/Mimi/Portrait_Background.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Background.jpg" alt="Portrait"/>
+
+            <div class="text_photo">
+              <h3>Portait <!--un petit coeur à rajouter--></h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="bloc_photo">
+          <a href="assets/Sample Photos/Mimi/Event_PintoWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_PintoWedding.jpg" alt="Mariage"/>
+
+            <div class="text_photo">
+              <h3>Mariage <!--un petit coeur à rajouter--></h3>
+            </div>
+          </a>
+        </div> 
+
+        <div class="bloc_photo">
+          <a href="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg" alt="Portrait"/>
+
+            <div class="text_photo">
+              <h3>Portrait <!--un petit coeur à rajouter--></h3>
+            </div>
+          </a>
+        </div>
+
       </section>
     </main>
 
-    <div id="contact_modal">
+    <!--contact modal-->
+    <div id="contact_modal" role="dialog" aria-label="contact-modal" aria-hidden="true">
 			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+				<header aria-label="contact form header">
+          <h2>Contactez-moi<br/>Mimi Keel</h2><img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 
+				<form 
+          id="inscription"
+          name="reserve"
+          action="photographer.html"
+          method="get"
+          novalidate
+          onsubmit="return validateForm()" 
+          role="document">
 
-      </div>
-
-				<form>
 					<div>
-						<div
-                class="formData">
-                <label for="first">Prénom</label><br>
+						<div class="formData">
+              <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                   minlength="2"
+                  aria-label="Entrez votre prénom"
                 /><br>
                 <small id="errorLabelFirst" class ="small">
                   Veuillez entrer 2 caractères ou plus pour le champ du prénom.
                 </small>
-              </div>
-              <div
-                class="formData">
-                <label for="last">Nom</label><br>
+            </div>
+            <div class="formData">
+              <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
                   minlength="2"
+                  aria-label="Entrez votre nom"
                 /><br>
                 <small id="errorLabelLast" class ="small">
                   Veuillez entrer 2 caractères ou plus pour le champ du nom.
                 </small>
-              </div>
-              <div class="formData">
-                <label for="email">E-mail</label><br>
+            </div>
+            <div class="formData">
+              <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
+                  aria-label="Vous devez entrer une adresse email valide"
                 /><br>
                 <small id="errorLabelMail" class="small">
                   Veuillez entrer une adresse valide. Exemple : contact@nom.com
                 </small>
-              </div>
+            </div>
+            <div class="formData">
+              <label for="message">Message</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="message"
+                  name="message"
+                  aria-label="Vous pouvez écrire un message"
+                /><br>
+            </div>
 					</div>
 
-          <button class="contact_button">Envoyer</button>
+          <button id="closeForm" class="contact_button" type="submit" value="Envoyer" aria-label="Envoyez votre message">Envoyer</button>
 
 				</form>
-			</div>
+      </div>
 		</div>
 
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

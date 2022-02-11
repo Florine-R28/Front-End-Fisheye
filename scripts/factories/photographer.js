@@ -8,19 +8,16 @@ function photographerFactory(data) {
         article.className = "photographer_section_article";
 
         const patternHomePage = `
-            <div>
-                <a LINK><img class="photographer_img" alt="" src="assets/photographers/${portrait}">
-                <div>
-                    <h2 class="photographer_name">${name}</h2>
-                </div>
+                <a href='photographer.html?id=${id}'>
+                    <img class="photographer_img" alt="" src="assets/photographers/${portrait}">
                 </a>
+                    <h2 class="photographer_name">${name}</h2>
 
                 <div class="photographer_info">
                     <h3 class="photographer_localization">${city}</h3>
                     <p class="photographer_tagline"><strong>${tagline}</strong></p>
-                    <p class ="photographer_price">${price}€</p>
+                    <p class ="photographer_price">${price}€/jour</p>
                 </div>
-            </div>
         `
         article.innerHTML = patternHomePage;
 

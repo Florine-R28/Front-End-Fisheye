@@ -1,45 +1,187 @@
-#contact_modal {
-    display: none;
+/*main*/
+main {
+    margin: 0 4rem 0 4rem;
 }
-
-.photograph_info {
+/*Information from the homepage*/
+.photograph_identity {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 300px;
+    background-color: #FAFAFA;
 }
 
-a:link 
-{ 
+a:link { 
 	text-decoration:none; 
 	color: #901C1C;
+}
 
+/*.photograph_info {
+    width: 33%;
+    margin-left: 4rem;
+}*/
+
+.photograph_name {
+    color: #D3573C;
+    margin: 0;
+    font-size: 4rem;
+}
+
+.photograph_city {
+    color: #901C1C;
+    margin: 10px 0 10px 0;
+}
+
+.photograph_tagline {
+    margin: 0;
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
-    margin: 0px 100px;
+    width: 33%;
+    text-align: center;
 }
 
+/*scrolling_menu*/
+.container_scrolling {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 1rem;
+}
+
+.arrow-down-open {
+    color: #fff;
+    left: 18.5rem;
+    position: absolute;
+    top: 26.4rem;
+}
+
+.arrow-up-close {
+    color: #fff;
+    left: 8.5rem;
+    position: absolute;
+    top: 1.55rem;
+}
+
+.multiple_choice li {
+    background: #901c1c;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1.25rem;
+}
+
+.choice_button {
+    align-items: center;
+    background: #901c1c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    justify-content: flex-start;
+    left: 11rem;
+    padding: .625rem 1.25rem;
+    position: absolute;
+    top: 25.6rem;
+    width: 10rem;
+}
+
+.choice_list {
+    display: block;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.choice_list>span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-right: 1.6rem;
+}
+
+ul.multiple_choice {
+    border-radius: 5px;
+    color: #fff;
+    display: none;
+    left: 167px;
+    padding: 0;
+    position: absolute;
+    top: 385px;
+    width: 11rem;
+    z-index: 10;
+}
+
+ul.multiple_choice li:hover {
+    background-color: #651414;
+    cursor: pointer;
+}
+
+ul.multiple_choiceli:nth-child(1) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*price and likes*/
+#box {
+    display: flex;
+    align-items: center;
+    background: #db8876;
+    border-radius: 0.3rem;
+    bottom: 0;
+    display: flex;
+    font-size: 1.2em;
+    font-weight: 500;
+    height: 4.4rem;
+    justify-content: space-between;
+    padding: 0 2.2rem;
+    position: fixed;
+    right: 2.5rem;
+    width: 18rem;
+}
+
+#box .fa-heart {
+    left: 7rem;
+    position: absolute;
+}
+
+/*gallery*/
 .container_gallery {
     display: flex;
 	flex-wrap: wrap;
 	margin-left: 20px;
 	margin-right: 20px;
+    justify-content: center;
 }
 
 .photo_gallery {
+  display: flex;
   background-color: white;
   transition-duration: 0.1s;
   cursor: pointer;
-  width: 100%;
+  width: 300px;
   height : 300px;
   object-fit: cover;
+  border-radius: 10px;
+}
 
+.bloc_photo {
+    padding: 20px 40px;
 }
 
 .text_photo {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
 
+/*contact modal*/
+
+#contact_modal {
+    display: none;
 }
 
 .contact_button {
@@ -58,7 +200,7 @@ a:link
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,16 +212,18 @@ a:link
 .modal header {
     justify-content: space-between;
     width: 100%;
+    display: flex;
 }
 
 .modal header img {
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    margin: 0;
 }
 
 form {
@@ -95,11 +239,9 @@ form label {
 }
 
 form div {
-    display: flex;
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
 }
 
 form input {
@@ -108,3 +250,9 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+/*small {
+    display: none;
+    font-size:1em;
+    color: red;
+  }*/
