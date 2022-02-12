@@ -22,37 +22,33 @@
       <section class="photograph_identity" aria-label="photographer information">
         <div class="contact_details">
           <h2 class="photograph_name">Mimi Keel</h2>
-          <div>
-          <div class ="photograph_inf">
-            <h3 class="photograph_city">London, UK</h3>
-            <p class="photograph_tagline">Voir le beau dans le quotidien</p>
-          </div>
-          <div class="photograph-header">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-          </div>
+          <div class="photograph_info">
+            <div class ="photograph_details">
+              <h3 class="photograph_city">London, UK</h3>
+              <p class="photograph_tagline">Voir le beau dans le quotidien</p>
+            </div>
+            <div class="contact_photographer">
+              <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            </div>
           </div>
         </div>
 
-        
-
-        <div class="photographer_img">
+        <div class="img_frame">
           <a><img class="photographer_img" alt="" src="assets/photographers/MimiKeel.jpg"/></a>
         </div>
       </section>
 
       <!--dropdown menu-->
-      <nav id="scrolling_menu">
-        <div class="container_scrolling">
-          <span id="choice_list">Trier par</span>
-            <button class="choice_button" aria-haspopup="listbox">Popularité</button>
-            <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
-            <ul class="multiple_choice" role="listbox">
-              <li class="choice" role='option'>Popularité<span class="fas fa-chevron-up arrow-up-close"></span</li>
-              <li class="choice" role='option'>Date</li>
-              <li class="choice" role='option'>Titre</li>                
-            </ul>
-        </div>
-      </nav>
+        <section class="container_scrolling">
+          <label for="dropdown">Trier par</label>
+
+          <select name="choice" id="choice_list">
+            <option role='option' value="option">Popularité</option>
+            <!--<span class="fas fa-chevron-down arrow-down-open" role='button'></span>-->
+            <option role='option' value="option">Date</option>
+            <option role='option' value="option">Titre</option>                
+          </select>
+        </section>
 
       <!--price-->
       <div id="box" aria-label="photographer likes and price">

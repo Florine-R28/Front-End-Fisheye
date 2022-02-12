@@ -16,15 +16,21 @@ a:link {
 	color: #901C1C;
 }
 
-/*.photograph_info {
-    width: 33%;
-    margin-left: 4rem;
-}*/
+.contact_details {
+    width: 66%;
+    margin: 30px;
+}
 
 .photograph_name {
     color: #D3573C;
     margin: 0;
     font-size: 4rem;
+}
+
+.photograph_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
 }
 
 .photograph_city {
@@ -36,9 +42,15 @@ a:link {
     margin: 0;
 }
 
-.photograph-header {
+.contact_photographer {
     width: 33%;
     text-align: center;
+}
+
+.img_frame {
+    width: 33%;
+    display: flex;
+    justify-content: center;
 }
 
 /*scrolling_menu*/
