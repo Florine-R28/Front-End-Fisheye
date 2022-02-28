@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/lightbox.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -38,80 +39,80 @@
         </div>
       </section>
 
-      <!--dropdown menu-->
+      
+      <section>
+        <!--dropdown menu-->
         <div class="container_scrolling">
           <label for="dropdown">Trier par</label>
 
-          <select name="choice" id="choice_list">
-            <option role='option' value="option">Popularité</option>
-            <!--<span class="fas fa-chevron-down arrow-down-open" role='button'></span>-->
-            <option role='option' value="option">Date</option>
-            <option role='option' value="option">Titre</option>                
+          <select 
+            name="choice" 
+            id="choice_list"
+            aria-label="Order by"
+            tabindex="4"
+          >
+            <option role='option' value="popularity">Popularité</option>
+            <option role='option' value="date">Date</option>
+            <option role='option' value="title">Titre</option>                
           </select>
         </div>
 
-      <!--price-->
-      <div id="box" aria-label="photographer likes and price">
-        <p>297 081</p><i class="fas fa-heart"></i>
-        <p>300€/jour</p>
-      </div>
+        <!--price-->
+        <div id="box" aria-label="photographer likes and price">
+          <p>297 081</p><i class="fas fa-heart"></i>
+          <p>300€/jour</p>
+        </div>
 
-      <!--photographer's gallery-->
-      <section class="container_gallery" aria-label="photograper works">
-        <ul class="carousel" aria-label="photographer's photo gallery">
-        <div class="bloc_photo">
-          <a href="assets/Sample Photos/Mimi/Animals_Rainbow.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="Arc-en-cie"/>
+        <!--photographer's gallery-->
+        <div class="container_gallery" aria-label="photographer's photo gallery" id="gallery">
+          <div class="bloc_photo">
+            <a href="assets/Sample Photos/Mimi/Animals_Rainbow.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="Arc-en-cie"/>  
+              <div class="text_photo">
+                <h3>Arc-en-cie</h3>
+                <p>11 <i class="fas fa-heart"></i></p>
+              </div>
+            </a>
+          </div>
               
-            <div class="text_photo">
-              <h3>Arc-en-cie</h3>
-              <p>11 <i class="fas fa-heart"></i></p>
-            </div>
-          </a>
-        </div>
-              
-        <div class="bloc_photo">
-          <a href="assets/Sample Photos/Mimi/Travel_Lonesome.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Travel_Lonesome.jpg" alt="Solitude"/>
+          <div class="bloc_photo">
+            <a href="assets/Sample Photos/Mimi/Travel_Lonesome.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Travel_Lonesome.jpg" alt="Solitude"/>
+              <div class="text_photo">
+                <h3>Solitude  <!--un petit coeur à rajouter--></h3>
+              </div>
+            </a>
+          </div>
 
-            <div class="text_photo">
-              <h3>Solitude  <!--un petit coeur à rajouter--></h3>
-            </div>
-          </a>
-        </div>
+          <div class="bloc_photo">
+            <a href="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg" alt="Mariage à la mer"/>
+              <div class="text_photo">
+                <h3>Mariage à la mer <!--un petit coeur à rajouter--></h3>
+              </div>
+            </a>
+          </div>
 
-        <div class="bloc_photo">
-          <a href="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_SeasideWedding.jpg" alt="Mariage à la mer"/>
+          <div class="bloc_photo">
+            <a href="assets/Sample Photos/Mimi/Portrait_Background.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Background.jpg" alt="Portrait"/>
+              <div class="text_photo">
+                <h3>Portait <!--un petit coeur à rajouter--></h3>
+              </div>
+            </a>
+          </div>
 
-            <div class="text_photo">
-              <h3>Mariage à la mer <!--un petit coeur à rajouter--></h3>
-            </div>
-          </a>
-        </div>
+          <div class="bloc_photo">
+            <a href="assets/Sample Photos/Mimi/Event_PintoWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_PintoWedding.jpg" alt="Mariage"/>
+              <div class="text_photo">
+                <h3>Mariage <!--un petit coeur à rajouter--></h3>
+              </div>
+            </a>
+          </div> 
 
-        <div class="bloc_photo">
-          <a href="assets/Sample Photos/Mimi/Portrait_Background.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Background.jpg" alt="Portrait"/>
-
-            <div class="text_photo">
-              <h3>Portait <!--un petit coeur à rajouter--></h3>
-            </div>
-          </a>
-        </div>
-
-        <div class="bloc_photo">
-          <a href="assets/Sample Photos/Mimi/Event_PintoWedding.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Event_PintoWedding.jpg" alt="Mariage"/>
-
-            <div class="text_photo">
-              <h3>Mariage <!--un petit coeur à rajouter--></h3>
-            </div>
-          </a>
-        </div> 
-
-        <div class="bloc_photo">
-          <a href="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg" alt="Portrait"/>
-
-            <div class="text_photo">
-              <h3>Portrait <!--un petit coeur à rajouter--></h3>
-            </div>
-          </a>
+          <div class="bloc_photo">
+            <a href="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg"><img class="photo_gallery" src="assets/Sample Photos/Mimi/Portrait_Wednesday.jpg" alt="Portrait"/>
+              <div class="text_photo">
+                <h3>Portrait <!--un petit coeur à rajouter--></h3>
+              </div>
+            </a>
+          </div>
         </div>
 
       </section>
@@ -195,17 +196,18 @@
       </div>
 		</div>
 
-    <!--lightbox
+    <!--lightbox-->
     <div class="lightbox" role='dialog'>
-      <button class="lightbox_close" role="button" aria-label="close dialog"><i aria-hidden="true" class="fas fa-times close-lightbox-icon"></i></button>
-      <button class="lightbox_next" role="button" aria-label="next image"><i aria-hidden="true" class="fas fa-chevron-right right-arrow-lightbox"></i></button>
-      <button class="lightbox_prev" role="button" aria-label="previous image"><i aria-hidden="true" class="fas fa-chevron-left left-arrow-lightbox"></i></button>
+      <button class="lightbox_close" role="button" aria-label="close dialog">Close</button>
+      <button class="lightbox_next" role="button" aria-label="next image">Next</button>
+      <button class="lightbox_previous" role="button" aria-label="previous image">Previous</button>
       <div class="lightbox_container">
-        <img src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt=""/>
+        <div class="lightbox_loader"></div>
+        <!--img class="lightbox_container_image" src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="" />-->
       </div>
-    </div>-->
+    </div>
 
     <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/utils/lightbox.js"> type="module"; defer</script>
+    <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>
