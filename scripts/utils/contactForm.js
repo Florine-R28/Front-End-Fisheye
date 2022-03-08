@@ -15,6 +15,7 @@ const nameRegex =/^[a-zA-Zàáâäãåąčćęèéêëėįìíîïłńòóôöõ
 const emailValid = document.getElementById("email");
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const messageSend = document.getElementById("message");
 
 // Input recovery (for change color border)
 const inputFirstName = document.getElementById("first");
@@ -80,4 +81,33 @@ function validateForm() {
   isValidForm = checkLastNameValidity();
   // Email check
   isValidForm = checkEmailValidity();
+}
+
+// Send form x empty it
+function sendForm() { 
+  const closeConfirmButton = document.getElementById('closeForm');
+  closeConfirmButton.addEventListener("click", function () {
+  confW.style.display = "none";
+  });
+}
+
+document.getElementById("contact_modal").addEventListener("submit", function () {
+  if (validateForm()) {
+    sendForm(); 
+    document.getElementById("contact_modal").reset();
+    closeModal();
+  }
+})
+
+/**
+	 * Send form with inputs values in the console
+	 */
+ if (closeForm) {
+  closeForm.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log(
+      `L'utilisateur ${firstName.value} ${lastName.value} avec l'adresse mail suivante ${EmailValid.value} vous adresse le message suivant : ${messageSend.value}`
+    );
+    modal.style.display = "none";
+  });
 }

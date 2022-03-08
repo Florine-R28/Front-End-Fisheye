@@ -5,9 +5,8 @@
  */
 class Lightbox {
     static init() {
-        const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpg], a[href$=".jpeg"]'));
-        const gallery = links.map(link => link.getAttribute('href'));
-		debugger
+        const links = Array.from(document.querySelectorAll('img[src$=".jpg"]'));
+        const gallery = links.map(link => link.getAttribute('src'));
         links.forEach(link => link.addEventListener("click", event => {
                 event.preventDefault();
                 new Lightbox(event.currentTarget.getAttribute('href'), gallery)
@@ -19,7 +18,7 @@ class Lightbox {
 	 * @param {string[]} images Chemins des images de la lightbox
 	 */
     constructor(url, images) {
-		console.log(url)
+		//console.log(url)
         this.element = this.buildDOM(url);
 		this.images = images;
 		this.loadImage(url);

@@ -1,5 +1,5 @@
-function photographerFactory(data) {
-    const { name, id, city, tagline, price, portrait } = data;
+function photographerFactory(photographerData) {
+    const { name, id, city, tagline, price, portrait } = photographerData;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -23,5 +23,15 @@ function photographerFactory(data) {
 
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+
+    function getUserPageDOM() {
+        const photographerHeader = document.querySelector('.photographer-page')
+        photographerHeader.innerHTML += `
+            <h1>${photographer[0].name}</h1>
+            <p>${photographer[0].city}, ${photographer[0].country} </p>
+            <img src="../assets/photographers/${photographer[0].portrait}">
+            <p >${photographers[0].tags.map(tag => `<a href="../index.html">#${tag}</a>`).join(" ")}</p>
+            `
+    }
+    return { name, picture, getUserCardDOM, getUserPageDOM }
 }

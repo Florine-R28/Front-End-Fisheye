@@ -15,11 +15,12 @@
     <!--header-->
     <header class="header" role="banner">
       <a id="logo" aria-label="Fisheye" href="index.html" title="HomePage">
-        <img role="img" alt="Logo de Fisheye" class="logo_top" src="assets/images/logo.png"/></a>
+        <img role="img" alt="Fisheye Home Page" class="logo_top" src="assets/images/logo.png"/>
+      </a>
     </header>
 
     <main id="main" class="content">
-    <!--information from the homepage-->
+
       <section class="photograph_identity" aria-label="photographer information">
         <div class="contact_details">
           <h2 class="photograph_name">Mimi Keel</h2>
@@ -42,7 +43,7 @@
       
       <section>
         <!--dropdown menu-->
-        <div class="container_scrolling">
+        <nav class="container_scrolling">
           <label for="dropdown">Trier par</label>
 
           <select 
@@ -55,7 +56,7 @@
             <option role='option' value="date">Date</option>
             <option role='option' value="title">Titre</option>                
           </select>
-        </div>
+        </nav>
 
         <!--price-->
         <div id="box" aria-label="photographer likes and price">
@@ -197,16 +198,17 @@
 		</div>
 
     <!--lightbox-->
-    <div class="lightbox" role='dialog'>
+    <!--<div class="lightbox" role='dialog'>
       <button class="lightbox_close" role="button" aria-label="close dialog">Close</button>
       <button class="lightbox_next" role="button" aria-label="next image">Next</button>
       <button class="lightbox_previous" role="button" aria-label="previous image">Previous</button>
       <div class="lightbox_container">
         <div class="lightbox_loader"></div>
-        <!--img class="lightbox_container_image" src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="" />-->
+        <!--img class="lightbox_container_image" src="assets/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="" />
       </div>
-    </div>
+    </div>-->
 
+    <script src="scripts/helpers/api.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
   </body>
