@@ -1,6 +1,9 @@
 //function media
-function mediaFactory(mediaData) {
+async function mediaFactory(mediaData) {
     const { title, image, video, likes } = mediaData;
+    const { medias, photographers } = await getPhotographers();
+    let params = new URLSearchParams(document.location.search);
+	const photographerID = params.get("id");
 
     function getMediaCardDOM() {
 
@@ -25,3 +28,5 @@ function mediaFactory(mediaData) {
     }
     return { getMediaCardDOM };
 }
+
+window.onload = mediaFactory;
