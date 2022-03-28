@@ -16,7 +16,7 @@ function mediaFactory(mediaData) {
                 ${linkElement}  
                     <div class="text_photo">
                         <h3>${title}/h3>
-                        <p>${likes} <i class="fas fa-heart"></i></p>
+                        <p>${likes} <i class="fas fa-heart heart-btn" aria-label="likes" role="button"></i></p>
                     </div>
                 </a>
             </div>

@@ -5,7 +5,7 @@
  */
 class Lightbox {
     static init() {
-        const links = Array.from(document.querySelectorAll('img[src$=".jpg"]'));
+        const links = Array.from(document.querySelectorAll('a[href="assets/Sample Photos/${photographerID}/${image}]', 'a[href="assets/Sample Photos/${photographerID}/${video}]'));
         const gallery = links.map(link => link.getAttribute('src'));
         links.forEach(link => link.addEventListener("click", event => {
                 event.preventDefault();

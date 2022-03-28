@@ -1,9 +1,3 @@
-//Mettre le code JavaScript lié à la page photographer.html
-//function init() {
-//    let params = new URLSearchParams(window.location.search);
-//    const photographerID = params.get('id');
-//}
-
 /**
 * @async Display photogrrapher data, based on his ID
 * @const {Array | Objects} media & photographers
@@ -29,8 +23,7 @@ async function init/*displayPhotograperData*/() {
 		const patternHTML = media.getMediaCardDOM();
 		mediaCard.appendChild(patternHTML);
 
-		totalLikes = mediaGallery[i].likes + totalLikes;  
-		
+		totalLikes = mediaGallery[i].likes + totalLikes;  	
 	}
 
 	//const recup la div pour le nbr total de likes innerhtml = totalLikes; 
@@ -40,8 +33,6 @@ async function init/*displayPhotograperData*/() {
 	const UserPageDOM = photographerPattern.getUserPageDOM();
 	console.log(selectedPhotographers);
 	selectedPhotographers.innerHTML = UserPageDOM;
-
-	
 }
 
 window.onload = init;
