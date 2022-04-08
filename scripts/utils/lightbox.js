@@ -5,11 +5,11 @@
  */
 class Lightbox {
     static init() {
-        const links = Array.from(document.querySelectorAll('a[href="assets/Sample Photos/${photographerID}/${image}]', 'a[href="assets/Sample Photos/${photographerID}/${video}]'));
+        const links = Array.from(document.querySelectorAll('.photo_gallery'));
         const gallery = links.map(link => link.getAttribute('src'));
         links.forEach(link => link.addEventListener("click", event => {
                 event.preventDefault();
-                new Lightbox(event.currentTarget.getAttribute('href'), gallery)
+                new Lightbox(link.getAttribute('src'), gallery)
             }));
     }
 
@@ -18,7 +18,6 @@ class Lightbox {
 	 * @param {string[]} images Chemins des images de la lightbox
 	 */
     constructor(url, images) {
-		//console.log(url)
         this.element = this.buildDOM(url);
 		this.images = images;
 		this.loadImage(url);
@@ -27,7 +26,6 @@ class Lightbox {
 		document.addEventListener('keyup', this.onKeyUp);
 		
     }
-
 
     /**
 	 * @param {string} url Url de l'image
@@ -81,6 +79,8 @@ class Lightbox {
 	 */
 	next(event) {
 		event.preventDefault();
+		console.log(this.images)
+		console.log(this.url)
 		let i = this.images.findIndex(image => image === this.url);
 		if (i === this.images.length - 1) {
 			i = -1
@@ -120,7 +120,3 @@ class Lightbox {
 	}
 }
 
-Lightbox.init()
-
-/*<p class="lightbox_container_image-titre"></p>
-<img class="lightbox_container_image" src="${url} alt="" />*/

@@ -21,12 +21,19 @@ async function init/*displayPhotograperData*/() {
 	for (let i = 0; i < mediaGallery.length; i ++) {
 		const media = mediaFactory(mediaGallery[i]);
 		const patternHTML = media.getMediaCardDOM();
-		mediaCard.appendChild(patternHTML);
+		mediaCard.innerHTML += /*ajouté ce qui est à droit à innerHTML*/ patternHTML;
 
 		totalLikes = mediaGallery[i].likes + totalLikes;  	
 	}
 
-	//const recup la div pour le nbr total de likes innerhtml = totalLikes; 
+	const totalLikesGlobal = document.getElementById("box");
+	console.log(box)
+	totalLikesGlobal.innerHTML = `
+	<p>${totalLikes}</p><i class="fas fa-heart"></i>
+    <p>${selectedPhotographerData.price}/jour</p>
+	`
+	
+	Lightbox.init(); 
 
 	const selectedPhotographers = document.getElementById("photograph_identity");
 	const photographerPattern = photographerFactory(selectedPhotographerData);

@@ -85,3 +85,19 @@ h1 {
     margin: 0;
     color: #757575;
 }
+
+/* RESPONSIVE TABLETTE */
+@media (min-width: 768px) and (max-width: 1024px) /* TABLETTE */ {
+    .photographer_section{
+        display:flex;
+        flex-wrap: wrap;
+    }
+}
+
+/*RESPONSIVE MOBILES*/
+@media (min-width: 300px) and (max-width: 767px) {
+    .photographer_section{
+        display :flex ;
+        flex-direction: column;
+    }
+}

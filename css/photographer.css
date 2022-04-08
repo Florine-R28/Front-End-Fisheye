@@ -53,6 +53,12 @@ a:link {
     justify-content: center;
 }
 
+/*scrolling*/
+.container_scrolling{
+    margin-top : 30px;
+    margin-bottom: 30px;
+}
+
 /*price and likes*/
 #box {
     display: flex;
@@ -198,4 +204,18 @@ textarea {
 small {
     display: none;
     font-size:1em;
-  }
+}
+
+/* RESPONSIVE TABLETTE */
+@media (max-width: 1024px) /* TABLETTE */ {
+    .photograph_identity{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+    }
+
+    .photograph_info{
+        flex-direction: column;
+    }
+}
