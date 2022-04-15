@@ -64,8 +64,8 @@
 .lightbox_container img
 .lightbox_container video {
     animation: lightboxIn 0.5s;
-	/*width: 400px;
-	height: 300px;*/
+	width: 400px;
+	height: 300px;
 	object-fit: cover;
     max-width: 100%;
     max-height: 100vh;
