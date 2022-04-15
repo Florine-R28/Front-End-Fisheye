@@ -92,6 +92,14 @@ h1 {
         display:flex;
         flex-wrap: wrap;
     }
+
+    .photographer_tagline{
+        display:flex;
+        flex-wrap: wrap;
+        max-width: 220px;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /*RESPONSIVE MOBILES*/

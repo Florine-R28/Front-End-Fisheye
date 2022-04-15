@@ -20,10 +20,10 @@ class Lightbox {
     constructor(url, images) {
         this.element = this.buildDOM(url);
 		this.images = images;
-		this.loadImage(url);
+		this.loadImage(url); /* charger l'img sur lequel on a cliqué*/
 		this.onKeyUp = this.onKeyUp.bind(this);
-		document.body.appendChild(this.element);
-		document.addEventListener('keyup', this.onKeyUp);
+		document.body.appendChild(this.element);/*inserer le html pour qu'il puisse s'afficher*/
+		document.addEventListener('keyup', this.onKeyUp);/*utiliser le touches du clavier pour changer d'images*/
 		
     }
 
@@ -81,11 +81,11 @@ class Lightbox {
 		event.preventDefault();
 		console.log(this.images)
 		console.log(this.url)
-		let i = this.images.findIndex(image => image === this.url);
+		let i = this.images.findIndex(image => image === this.url);/*recup la nouvelle image à telecharger*/
 		if (i === this.images.length - 1) {
 			i = -1
 		}
-		this.loadImage(this.images[i + 1]);
+		this.loadImage(this.images[i + 1]);/*chargé la nouvelle image*/
 	}
 
 	/**
