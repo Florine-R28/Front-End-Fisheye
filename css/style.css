@@ -92,14 +92,14 @@ h1 {
     .photographer_section{
         display:flex;
         flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
     }
 
     .photographer_tagline{
-        display:flex;
-        flex-wrap: wrap;
+        text-align: center;
         max-width: 220px;
-        justify-content: center;
-        align-items: center;
+        word-wrap: break-word;
     }
 }
 
