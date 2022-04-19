@@ -14,9 +14,9 @@ function mediaFactory(mediaData) {
         const patternMedia /*string*/ = `
             <div class="bloc_photo">
                 ${linkElement}  
-                    <div class="text_photo">
+                    <div id="textPhoto" class="text_photo">
                         <h3>${title}</h3>
-                        <p>${likes} <i id="heart" class="fas fa-heart" aria-label="likes" role="button"></i></p>
+                        <p id="numberLikes" aria-label="likes">${likes}</p><i id="heart" class="fas fa-heart" aria-label="likes" role="button"></i>
                     </div>
             </div>
         `
