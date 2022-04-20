@@ -20,7 +20,7 @@ async function init/*displayPhotograperData*/() {
 	/**
  	* Filter media gallery with select option params
  	* @param {Array} mediaGallery
- 	* @param {String} option
+ 	* @param {String}
  	* @returns {Array} - return a sorted media array
  	*/
 	const dropMenu = document.getElementById("container_scrolling");
@@ -28,7 +28,7 @@ async function init/*displayPhotograperData*/() {
 		switch (dropMenu) {
 			case "popularity":
 				return mediaGallery.sort((a, b) => {
-					return b.likes - a.likes;
+					return b.value - a.value;
 				});
 			case "date":
 				return mediaGallery.sort((a, b) => {

@@ -116,6 +116,16 @@ a:link {
     justify-content: space-between;
 }
 
+.likes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#numberLikes{
+    margin-right: 5px;
+}
+
 
 /* RESPONSIVE TABLETTE */
 @media (max-width: 1024px) /* TABLETTE */ {
@@ -126,7 +136,27 @@ a:link {
         height: auto;
     }
 
+    .photograph_name{
+        align-items: center;
+    }
+
+    .contact_details{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .photograph_info{
         flex-direction: column;
+    }
+
+    .photograph_city{
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact_photographer{
+        width: auto;
+        margin-top: 20px;
     }
 }
