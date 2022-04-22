@@ -17,15 +17,11 @@ async function init/*displayPhotograperData*/() {
 	const mediaCard = document.getElementById("container_gallery");
 	let totalLikes = 0 ; /*initialisation*/
 
-	/**
- 	* Filter media gallery with select option params
- 	* @param {Array} mediaGallery
- 	* @param {String}
- 	* @returns {Array} - return a sorted media array
- 	*/
-	const dropMenu = document.getElementById("container_scrolling");
-	const filterByOption = (mediaGallery, dropMenu) => {
-		switch (dropMenu) {
+	//sort photos with a filter
+	const scrollingMenu = document.getElementById("container_scrolling");
+	console.log(mediaGallery)
+	const filterByOption = (mediaGallery, scrollingMenu) => {
+		switch (scrollingMenu) {
 			case "popularity":
 				return mediaGallery.sort((a, b) => {
 					return b.value - a.value;
@@ -46,6 +42,7 @@ async function init/*displayPhotograperData*/() {
 	for (let i = 0; i < mediaGallery.length; i ++) {
 		const media = mediaFactory(mediaGallery[i]);
 		const patternHTML = media.getMediaCardDOM();
+		mediaCard.appendChild(patternHTML);/*const patternHTML = media.getMediaCardDOM();*/
 		mediaCard.innerHTML += /*ajouté ce qui est à droit à innerHTML*/ patternHTML;
 
 		totalLikes = mediaGallery[i].likes + totalLikes; 
@@ -72,7 +69,7 @@ async function init/*displayPhotograperData*/() {
 	const totalLikesGlobal = document.getElementById("box");
 	
 	totalLikesGlobal.innerHTML = `
-	<p>${totalLikes}</p><i class="fas fa-heart"></i>
+	<p id="totalLikesGlobal">${totalLikes}</p><i class="fas fa-heart"></i>
     <p>${selectedPhotographerData.price}/jour</p>
 	`
 	
