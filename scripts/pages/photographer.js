@@ -1,10 +1,18 @@
-/**
-* @async Display photographer data, based on his ID
-* @const {Array | Objects} media & photographers
-* @const params - Get params in URL
-* @const photographerID - Get id in params
-* @const selectedPhotographerData - return
-*/
+let totalLikes = 0 ; /*initialisation*/
+
+function displayMedias(medias){
+	const mediaCard = document.getElementById("container_gallery");
+	mediaCard.innerHTML = "";
+
+	for (let i = 0; i < medias.length; i ++) {
+		const media = mediaFactory(medias[i]);
+		const patternHTML = media.getMediaCardDOM();
+		mediaCard.appendChild(patternHTML);
+
+		totalLikes = medias[i].likes + totalLikes; 
+	}
+}
+
 async function init/*displayPhotograperData*/() {
 	const { medias, photographers } = await getPhotographers();
 	let params = new URLSearchParams(document.location.search);
@@ -14,57 +22,28 @@ async function init/*displayPhotograperData*/() {
 	);
 	
     const mediaGallery /*tableau*/ = medias.filter((media) => media.photographerId.toString() === photographerID);
-	const mediaCard = document.getElementById("container_gallery");
-	let totalLikes = 0 ; /*initialisation*/
-
+	
 	//sort photos with a filter
-	const scrollingMenu = document.getElementById("container_scrolling");
-	console.log(mediaGallery)
-	const filterByOption = (mediaGallery, scrollingMenu) => {
-		switch (scrollingMenu) {
-			case "popularity":
-				return mediaGallery.sort((a, b) => {
-					return b.value - a.value;
-				});
-			case "date":
-				return mediaGallery.sort((a, b) => {
+	const scrollingMenu = document.getElementById("choice_list");
+	function filterByOption (event){
+		mediaGallery.sort(function(a,b){
+			switch (event.target.value) {
+				case "date":
 					return new Date(b.date) - new Date(a.date);
-				});
-			case "title":
-				return mediaGallery.sort((a, b) => a.title.localeCompare(b.title));
-			default:
-				return mediaGallery.sort((a, b) => {
+				case "title":
+					return (a.title).localeCompare(b.title);
+				case "popularity":
+				default:
 					return b.likes - a.likes;
-				});
-		}
+			}
+		})
+		
+		displayMedias(mediaGallery);
 	};
 
-	for (let i = 0; i < mediaGallery.length; i ++) {
-		const media = mediaFactory(mediaGallery[i]);
-		const patternHTML = media.getMediaCardDOM();
-		mediaCard.appendChild(patternHTML);/*const patternHTML = media.getMediaCardDOM();*/
-		mediaCard.innerHTML += /*ajouté ce qui est à droit à innerHTML*/ patternHTML;
+	scrollingMenu.addEventListener('change', filterByOption);
 
-		totalLikes = mediaGallery[i].likes + totalLikes; 
-	}
-
-	/*const likesSection = document.getElementById("textPhoto");
-	likesSection.forEach(function(i) {
-		i.addEventListener('click', function(){
-			let iconButton = document.getElementById("heart"); 
-			let numberLikes = document.getElementById("numberLikes");
-			let count = parseInt(numberLikes.innerText);
-			if () {
-				//si un click est fait alors ajouter 1 à la photo et +1 à la somme totale des photos
-			} else {
-
-			}
-
-		iconButton.
-			count = count+1; 
-			numberLikes.innerHTML = count;
-		})
-	});*/
+	displayMedias(mediaGallery);
 
 	const totalLikesGlobal = document.getElementById("box");
 	
