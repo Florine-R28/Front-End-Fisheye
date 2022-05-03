@@ -128,7 +128,7 @@ a:link {
 
 
 /* RESPONSIVE TABLETTE */
-@media (max-width: 1024px) /* TABLETTE */ {
+@media (max-width: 1024px) {
     .photograph_identity{
         display:flex;
         flex-wrap: wrap;
