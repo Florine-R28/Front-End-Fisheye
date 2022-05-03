@@ -108,10 +108,10 @@ class Lightbox {
 	buildDOM() {
 		const dom = document.createElement('div');
 		dom.classList.add('lightbox');
-		dom.innerHTML = `<button class="lightbox_close" role="button" aria-label="close dialog">Close</button>
-		<button class="lightbox_next" role="button" aria-label="next image">Next</button>
-		<button class="lightbox_previous" role="button" aria-label="previous image">Previous</button>
-		<div class="lightbox_container"> role="dialog">
+		dom.innerHTML = `<button class="lightbox_close" role="button" aria-label="fermer le formulaire">Close</button>
+		<button class="lightbox_next" role="button" aria-label="media suivante">Next</button>
+		<button class="lightbox_previous" role="button" aria-label="media précédente">Previous</button>
+		<div class="lightbox_container" role="dialog">
 		</div>`;
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		    dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));

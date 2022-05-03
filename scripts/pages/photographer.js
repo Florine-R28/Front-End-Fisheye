@@ -2,7 +2,7 @@ let totalLikes = 0 ; /*initialisation*/
 
 function displayMedias(medias){
 	const mediaCard = document.getElementById("container_gallery");
-	mediaCard.innerHTML = "";
+	//mediaCard.innerHTML = "";
 
 	for (let i = 0; i < medias.length; i ++) {
 		const media = mediaFactory(medias[i]);
@@ -48,7 +48,7 @@ async function init/*displayPhotograperData*/() {
 	const totalLikesGlobal = document.getElementById("box");
 	
 	totalLikesGlobal.innerHTML = `
-	<p id="totalLikesGlobal">${totalLikes}</p><i class="fas fa-heart"></i>
+	<p id="totalLikesGlobal" aria-label="total des likes et prix par jour">${totalLikes}</p><i class="fas fa-heart"></i>
     <p>${selectedPhotographerData.price}/jour</p>
 	`
 	

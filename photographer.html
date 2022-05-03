@@ -12,9 +12,9 @@
 
   <body>
     <!--header-->
-    <header class="header">
-      <a id="logo" aria-label="Fisheye" href="index.html" title="HomePage">
-        <img alt="Fisheye Home Page" class="logo_top" src="assets/images/logo.png"/>
+    <header class="header" role="banner">
+      <a id="logo" aria-label="Fisheye" href="index.html" title="Lien vers la page d'accueil" role="link">
+        <img alt="Logo Fisheye" class="logo_top" src="assets/images/logo.png" aria-labelledby="retour"/>
       </a>
     </header>
 
@@ -52,7 +52,7 @@
     <div id="contact_modal" role="dialog" aria-label="contact-modal" aria-hidden="true">
 			<div class="modal">
 				<header aria-label="contact form header">
-          <h2>Contactez-moi<br/>Mimi Keel</h2><img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2>Contactez-moi<br/>Mimi Keel</h2><img src="assets/icons/close.svg" onclick="closeModal()" role="button"/>
         </header>
 
 				<form 
@@ -120,7 +120,7 @@
             </div>
 					</div>
 
-          <button id="closeForm" class="contact_button" type="submit" value="Envoyer" aria-label="Envoyez votre message">Envoyer</button>
+          <button id="closeForm" class="contact_button" type="submit" value="Envoyer" aria-label="Envoyez votre formulaire">Envoyer</button>
 
 				</form>
       </div>

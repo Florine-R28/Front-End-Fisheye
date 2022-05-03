@@ -17,20 +17,25 @@ function mediaFactory(mediaData) {
         linkElement.classList.add('mediaLink');
       
 
-        if (image /*== undefined*/) {
-            //set attribute => href
-            //create a image element
-            //insert img in linkElement
-            linkElement = `<a /*class="mediaLink"*/ href="assets/Sample Photos/${photographerId}/${image}"><img class="photo_gallery" src="assets/Sample Photos/${photographerId}/${image}" alt="${title}"/></a>`
+        if (image /*== undefined*/) { 
+            linkElement.setAttribute('href', `assets/Sample Photos/${photographerId}/${image}`);
+            const img = document.createElement('img');
+            img.classList.add('photo_gallery');
+            img.setAttribute('src', `assets/Sample Photos/${photographerId}/${image}`);
+            img.setAttribute('alt', title);
+            linkElement.appendChild(img);
+            
         } else {
-            //set attribute => href
-            //creation a video element
-            //insert video in linkElement
-            linkElement = `<a class="mediaLink" href="assets/Sample Photos/${photographerId}/${video}"><video class="photo_gallery"><source src="assets/Sample Photos/${photographerId}/${video}"/>${title}</video></a>`
+            linkElement.setAttribute('href', `assets/Sample Photos/${photographerId}/${video}`);
+            const videoElement = document.createElement('video');
+            videoElement.classList.add('photo_gallery');
+            videoElement.setAttribute('source', `assets/Sample Photos/${photographerId}/${video}`);
+            videoElement.setAttribute('alt', title);
+            linkElement.appendChild(videoElement);
+
         } 
-        //insert the media in the photo block
-        //photoBlock.appendChild(linkElement);  
-        photoBlock.innerHTML = linkElement;
+          
+        photoBlock.appendChild(linkElement);
         
         //text of the media
         /*<div id="textPhoto" class="text_photo"></div>*/
@@ -41,6 +46,7 @@ function mediaFactory(mediaData) {
         //insert h3 in photoBlock
         /*<h3>${title}</h3>*/
         const titlePhoto = document.createElement('h3');
+        titlePhoto.setAttribute('aria-label', "titre");
         titlePhoto.innerText = title;
         textPhoto.appendChild(titlePhoto);
 
