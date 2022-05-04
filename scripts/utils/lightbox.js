@@ -114,8 +114,8 @@ class Lightbox {
 		<div class="lightbox_container" role="dialog">
 		</div>`;
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
-		    dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
-		    dom.querySelector(".lightbox_previous").addEventListener("click", this.previous.bind(this));
+		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
+		dom.querySelector(".lightbox_previous").addEventListener("click", this.previous.bind(this));
 		return dom;
 	}
 }

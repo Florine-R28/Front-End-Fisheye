@@ -1,4 +1,4 @@
-//create a function on the total likes
+//create a function for the total likes
 function updateTotalLikes(updateType) {
     const totalLikesGlobal = document.getElementById("totalLikesGlobal");
     if (updateType === "add"){

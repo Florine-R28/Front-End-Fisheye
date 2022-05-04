@@ -1,11 +1,11 @@
-let totalLikes = 0 ; /*initialisation*/
+//initialization of likes to 0
+let totalLikes = 0; 
+
 
 function displayMedias(medias){
 	const mediaCard = document.getElementById("container_gallery");
-	//mediaCard.innerHTML = "";
-
 	for (let i = 0; i < medias.length; i ++) {
-		const media = mediaFactory(medias[i]);
+		const media = mediaFactory(medias[i]); 
 		const patternHTML = media.getMediaCardDOM();
 		mediaCard.appendChild(patternHTML);
 
@@ -39,7 +39,7 @@ async function init/*displayPhotograperData*/() {
 		})
 		
 		displayMedias(mediaGallery);
-	};
+	}
 
 	scrollingMenu.addEventListener('change', filterByOption);
 
@@ -52,7 +52,7 @@ async function init/*displayPhotograperData*/() {
     <p>${selectedPhotographerData.price}/jour</p>
 	`
 	
-	Lightbox.init(); 
+	Lightbox.init();
 
 	const selectedPhotographers = document.getElementById("photograph_identity");
 	const photographerPattern = photographerFactory(selectedPhotographerData);

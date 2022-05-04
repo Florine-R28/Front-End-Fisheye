@@ -1,11 +1,11 @@
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
+  const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "none";
 }
 
 // Form fields validation
@@ -65,10 +65,9 @@ function checkFirstNameValidity () {
   }
 
 // Initialization of event changes
-// First x Last name check 
+// First x Last name check x Email check
 firstName.addEventListener('change', checkFirstNameValidity);
 lastName.addEventListener('change', checkLastNameValidity);
-// Email check
 emailValid.addEventListener('change', checkEmailValidity);
 
 // Check all form fields
@@ -76,38 +75,30 @@ function validateForm() {
     event.preventDefault();
     let isValidForm = true;
 
-  //Names check (firstName x lastName)
+  //Names check (firstName x lastName) x Email check
   isValidForm = checkFirstNameValidity();
   isValidForm = checkLastNameValidity();
-  // Email check
   isValidForm = checkEmailValidity();
+
+  return isValidForm();
 }
 
-// Send form x empty it
+// Send form x empty it, with inputs values in the console
 function sendForm() { 
   const closeConfirmButton = document.getElementById('closeForm');
-  closeConfirmButton.addEventListener("click", function () {
-  confW.style.display = "none";
+    closeConfirmButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      console.log(
+        `L'utilisateur ${firstName.value} ${lastName.value} avec l'adresse mail suivante ${emailValid.value} vous adresse le message suivant : ${messageSend.value}`
+      );
+      closeConfirmButton.style.display = "none";
   });
 }
 
 document.getElementById("contact_modal").addEventListener("submit", function () {
   if (validateForm()) {
     sendForm(); 
-    document.getElementById("contact_modal").reset();
+    displayModal.reset();
     closeModal();
   }
 })
-
-/**
-	 * Send form with inputs values in the console
-	 */
- if (closeForm) {
-  closeForm.addEventListener("click", function (event) {
-    event.preventDefault();
-    console.log(
-      `L'utilisateur ${firstName.value} ${lastName.value} avec l'adresse mail suivante ${EmailValid.value} vous adresse le message suivant : ${messageSend.value}`
-    );
-    modal.style.display = "none";
-  });
-}
