@@ -1,4 +1,5 @@
 //function media
+// eslint-disable-next-line no-unused-vars
 function mediaFactory(mediaData) {
     const {id, photographerId, title, image, video, likes } = mediaData;
 
@@ -76,6 +77,7 @@ function mediaFactory(mediaData) {
             mediaData.likes = mediaData.likes > likes ? mediaData.likes-1 : mediaData.likes+1;
             const numberLikes = document.getElementById(`numberLikes-${id}`);
             numberLikes.innerText = mediaData.likes;
+            // eslint-disable-next-line no-undef
             updateTotalLikes( mediaData.likes > likes ? "add" :"less");
         })
 

@@ -1,4 +1,5 @@
 //get the data fish (photographers & medias)
+// eslint-disable-next-line no-unused-vars
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
     let url = `data/photographers.json`; /*emplacment du ficher, ex adresse*/

@@ -71,7 +71,7 @@ lastName.addEventListener('change', checkLastNameValidity);
 emailValid.addEventListener('change', checkEmailValidity);
 
 // Check all form fields
-function validateForm() {
+function isValidForm() {
     event.preventDefault();
     let isValidForm = true;
 

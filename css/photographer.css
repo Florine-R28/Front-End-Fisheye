@@ -1,5 +1,3 @@
-@import url("modal.css");
-
 /*main*/
 main {
     margin: 0 4rem 0 4rem;
@@ -90,7 +88,7 @@ a:link {
 	flex-wrap: wrap;
 	margin-left: 20px;
 	margin-right: 20px;
-    justify-content: center;
+    justify-content: space-between;
     color: #901C1C;
 }
 

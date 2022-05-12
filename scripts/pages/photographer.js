@@ -4,7 +4,9 @@ let totalLikes = 0;
 
 function displayMedias(medias){
 	const mediaCard = document.getElementById("container_gallery");
+	mediaCard.innerHTML="";
 	for (let i = 0; i < medias.length; i ++) {
+		// eslint-disable-next-line no-undef
 		const media = mediaFactory(medias[i]); 
 		const patternHTML = media.getMediaCardDOM();
 		mediaCard.appendChild(patternHTML);
@@ -14,6 +16,7 @@ function displayMedias(medias){
 }
 
 async function init/*displayPhotograperData*/() {
+	// eslint-disable-next-line no-undef
 	const { medias, photographers } = await getPhotographers();
 	let params = new URLSearchParams(document.location.search);
 	const photographerID = params.get("id");
@@ -42,7 +45,6 @@ async function init/*displayPhotograperData*/() {
 	}
 
 	scrollingMenu.addEventListener('change', filterByOption);
-
 	displayMedias(mediaGallery);
 
 	const totalLikesGlobal = document.getElementById("box");
@@ -52,9 +54,11 @@ async function init/*displayPhotograperData*/() {
     <p>${selectedPhotographerData.price}/jour</p>
 	`
 	
+	// eslint-disable-next-line no-undef
 	Lightbox.init();
 
 	const selectedPhotographers = document.getElementById("photograph_identity");
+	// eslint-disable-next-line no-undef
 	const photographerPattern = photographerFactory(selectedPhotographerData);
 	const UserPageDOM = photographerPattern.getUserPageDOM();
 	/*console.log(selectedPhotographers);*/

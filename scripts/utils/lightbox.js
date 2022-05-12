@@ -3,6 +3,7 @@
  * @property {string []} images Chemin des images de la lightbox
  * @property {string []} url - Image actuellement affichée 
  */
+// eslint-disable-next-line no-unused-vars
 class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('.photo_gallery'));

@@ -12,9 +12,9 @@
 
   <body>
     <!--header-->
-    <header class="header" role="banner">
-      <a id="logo" aria-label="Fisheye" href="index.html" title="Lien vers la page d'accueil" role="link">
-        <img alt="Logo Fisheye" class="logo_top" src="assets/images/logo.png" aria-labelledby="retour"/>
+    <header class="header">
+      <a id="logo" aria-label="Fisheye" href="index.html" title="Lien vers la page d'accueil">
+        <img alt="Logo Fisheye" class="logo_top" src="assets/images/logo.png" aria-label="retour"/>
       </a>
     </header>
 
@@ -23,37 +23,39 @@
       <section id="photograph_identity" class="photograph_identity" aria-label="photographer information">
       </section>
 
-      <section>
+      <section>       
         <!--dropdown menu-->
         <nav id="container_scrolling" class="container_scrolling">
-          <label for="dropdown">Trier par</label>
+          <label for="choice_list">Trier par</label>
 
           <select 
             name="choice" 
             id="choice_list"
             aria-label="Order by"
           >
-            <option value="popularity" aria-label="popularité">Popularité</option>
-            <option value="date" aria-label="date">Date</option>
-            <option value="title" aria-label="titre">Titre</option>                
+            <option value="popularity">Popularité</option>
+            <option value="date">Date</option>
+            <option value="title">Titre</option>                
           </select>
         </nav>
 
         <!--price-->
-        <div id="box" aria-label="le prix et les j'aime du photographe"></div>
+        <div id="box"></div>
 
         <!--photographer's gallery-->
-        <div id="container_gallery" class="container_gallery" aria-label="galerie du photographe"></div>
+        <div id="container_gallery" class="container_gallery"></div>
 
       </section>
     </main>
 
     <!--contact modal-->
-    <div id="contact_modal" role="dialog" aria-label="contact-modal" aria-hidden="true">
-			<div class="modal">
-				<header aria-label="contact form header">
-          <h2>Contactez-moi<br/>Mimi Keel</h2><img src="assets/icons/close.svg" onclick="closeModal()" role="button"/>
-        </header>
+    <section id="contact_modal" role="dialog" aria-label="contact-modal" aria-hidden="true">
+      <div >
+			  <div class="modal">
+				  <header aria-label="contact form header">
+            <h2>Contactez-moi<br/>${id}</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()" role="button" alt="Fermer"/>
+          </header>
 
 				<form 
           id="inscription"
@@ -61,8 +63,7 @@
           action="photographer.html"
           method="get"
           novalidate
-          onsubmit="validateForm()" 
-          role="document">
+          onsubmit="validateForm()">
 
 					<div>
 						<div class="formData">
@@ -94,7 +95,7 @@
                 </small>
             </div>
             <div class="formData">
-              <label for="email">E-mail</label><br>
+              <label for="email">Email</label><br>
                 <input
                   class="text-control"
                   type="email"
@@ -107,10 +108,9 @@
                 </small>
             </div>
             <div class="formData">
-              <label for="message">Message</label><br>
+              <label for="message">Votre message</label><br>
                 <textarea
                   class="text-control"
-                  type="text"
                   id="message"
                   name="message"
                   rows="10"
