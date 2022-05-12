@@ -1,13 +1,3 @@
-function displayModal() {
-  const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
-}
-
-function closeModal() {
-  const modal = document.getElementById("contact_modal");
-  modal.style.display = "none";
-}
-
 // Form fields validation
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -16,6 +6,18 @@ const emailValid = document.getElementById("email");
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const messageSend = document.getElementById("message");
+
+function displayModal() {
+  const modal = document.getElementById("contact_modal");
+	modal.style.display = "block";
+  //focus
+  firstName.focus();
+}
+
+function closeModal() {
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "none";
+}
 
 // Input recovery (for change color border)
 const inputFirstName = document.getElementById("first");
@@ -71,7 +73,7 @@ lastName.addEventListener('change', checkLastNameValidity);
 emailValid.addEventListener('change', checkEmailValidity);
 
 // Check all form fields
-function isValidForm() {
+function validateForm() {
     event.preventDefault();
     let isValidForm = true;
 

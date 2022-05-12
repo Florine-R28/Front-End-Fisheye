@@ -1,4 +1,4 @@
-//create a function for the total likes
+//add or remove 1 for total likes
 // eslint-disable-next-line no-unused-vars
 function updateTotalLikes(updateType) {
     const totalLikesGlobal = document.getElementById("totalLikesGlobal");

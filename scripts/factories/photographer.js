@@ -1,9 +1,12 @@
+//create the empty slot to use it as many times as necessary
 // eslint-disable-next-line no-unused-vars
 function photographerFactory(photographerData) {
+    //call data that we will use, stored in helpers/api.js
     const { name, id, city, tagline, price, portrait } = photographerData;
 
     const picture = `assets/photographers/${portrait}`;
 
+    //empty template for homepage photographers locations
     function getUserCardDOM() {
         const article = document.createElement( 'article' ); 
         article.className = "photographer_section_article";
@@ -25,6 +28,7 @@ function photographerFactory(photographerData) {
         return (article);
     }
 
+    //global information of the selected photographer
     function getUserPageDOM() {
 
         const patternPhotographerPage = `

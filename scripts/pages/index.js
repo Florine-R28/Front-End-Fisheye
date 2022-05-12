@@ -1,3 +1,4 @@
+//step 1 : create an empty model
 async function displayData(photographers) {
     const photographersSection = document.getElementById("photographer_section");
     
@@ -9,13 +10,12 @@ async function displayData(photographers) {
     });
 }
 
+//step 2 : retrieve the data x insert it into the empty slots
 async function init() {
-    // Récupère les datas des photographes
     // eslint-disable-next-line no-undef
     const { photographers } = await getPhotographers(); 
-    //console.log(photographers)
     displayData(photographers);
-    
 }
 
+//step 3 : start it all
 window.onload = init;

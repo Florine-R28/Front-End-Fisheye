@@ -1,17 +1,22 @@
-/**
- * @property {HTMLElement} element
- * @property {string []} images Chemin des images de la lightbox
- * @property {string []} url - Image actuellement affichée 
- */
+//create a lightbox 
 // eslint-disable-next-line no-unused-vars
 class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('.photo_gallery'));
         const gallery = links.map(link => link.getAttribute('src'));
-        links.forEach(link => link.addEventListener("click", event => {
-                event.preventDefault();
-                new Lightbox(link.getAttribute('src'), gallery)
-            }));
+
+		//open lightbox by keyboard
+        links.forEach(link => {
+			link.addEventListener("click", event => {
+            	event.preventDefault();
+            	new Lightbox(link.getAttribute('src'), gallery);
+            })
+			link.addEventListener("keyup", event => {
+				console.log(event.key)
+				if (event.key === "Enter"){
+				new Lightbox(link.getAttribute('src'), gallery);
+			}});
+		});
     }
 
     /**
@@ -25,7 +30,6 @@ class Lightbox {
 		this.onKeyUp = this.onKeyUp.bind(this);
 		document.body.appendChild(this.element);/*inserer le html pour qu'il puisse s'afficher*/
 		document.addEventListener('keyup', this.onKeyUp);/*utiliser le touches du clavier pour changer d'images*/
-		
     }
 
     /**
@@ -43,7 +47,6 @@ class Lightbox {
 			container.removeChild(loader)
 			container.appendChild(image)
 			this.url = url 
-			/*console.log('chargée')*/
 		}
 		image.src = url;
 	}
@@ -61,10 +64,7 @@ class Lightbox {
 		}
 	}
 
-    /**
-	 * Close modal
-	 * @param {MouseEvent | KeyboardEvent} event
-	 */
+	//close modal
 	close(event) {
 		event.preventDefault();
 		this.element.classList.add('fadeOut');
@@ -74,10 +74,7 @@ class Lightbox {
 		document.removeEventListener('keyup', this.onKeyUp);
 	}
 
-	/**
-	 * Switch to the next image
-	 * @param {MouseEvent | KeyboardEvent} event
-	 */
+	//switch to the next image
 	next(event) {
 		event.preventDefault();
 		console.log(this.images)
@@ -89,10 +86,8 @@ class Lightbox {
 		this.loadImage(this.images[i + 1]);/*chargé la nouvelle image*/
 	}
 
-	/**
-	 * Switch to the previous image
-	 * @param {MouseEvent | KeyboardEvent} event
-	 */
+	
+	//switch to the previous image
 	previous(event) {
 		event.preventDefault();
 		let i = this.images.findIndex(image => image === this.url);
@@ -102,14 +97,11 @@ class Lightbox {
 		this.loadImage(this.images[i - 1]);
 	}
 
-    /**
-	 *
-	 * @return {HTMLElement}
-	 */
+    //html part
 	buildDOM() {
 		const dom = document.createElement('div');
 		dom.classList.add('lightbox');
-		dom.innerHTML = `<button class="lightbox_close" role="button" aria-label="fermer le formulaire">Close</button>
+		dom.innerHTML = `<button id="lightbox_close" class="lightbox_close" role="button" aria-label="fermer le formulaire">Close</button>
 		<button class="lightbox_next" role="button" aria-label="media suivante">Next</button>
 		<button class="lightbox_previous" role="button" aria-label="media précédente">Previous</button>
 		<div class="lightbox_container" role="dialog">
@@ -117,6 +109,8 @@ class Lightbox {
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
 		dom.querySelector(".lightbox_previous").addEventListener("click", this.previous.bind(this));
+		const closeElement = dom.querySelector('.lightbox_close');
+		closeElement.focus();
 		return dom;
 	}
 }
