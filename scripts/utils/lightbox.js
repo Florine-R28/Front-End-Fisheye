@@ -1,40 +1,32 @@
 //create a lightbox 
+//class (memorize properties and keep the state of the box)
 // eslint-disable-next-line no-unused-vars
 class Lightbox {
+	//static (allows to initialize the lightbox x allows to define a static method of a class)
     static init() {
+		//select all links that lead to photos/videos
         const links = Array.from(document.querySelectorAll('.photo_gallery'));
         const gallery = links.map(link => link.getAttribute('src'));
 
-		//open lightbox by keyboard
         links.forEach(link => {
 			link.addEventListener("click", event => {
             	event.preventDefault();
             	new Lightbox(link.getAttribute('src'), gallery);
             })
-			link.addEventListener("keyup", event => {
-				console.log(event.key)
-				if (event.key === "Enter"){
-				new Lightbox(link.getAttribute('src'), gallery);
-			}});
 		});
     }
 
-    /**
-	 * @param {string} url URl de l'image
-	 * @param {string[]} images Chemins des images de la lightbox
-	 */
+	//create and initialize an object when using the class keyword.
     constructor(url, images) {
         this.element = this.buildDOM(url);
 		this.images = images;
-		this.loadImage(url); /* charger l'img sur lequel on a cliqué*/
+		this.loadImage(url); 
 		this.onKeyUp = this.onKeyUp.bind(this);
-		document.body.appendChild(this.element);/*inserer le html pour qu'il puisse s'afficher*/
-		document.addEventListener('keyup', this.onKeyUp);/*utiliser le touches du clavier pour changer d'images*/
+		document.body.appendChild(this.element);
+		document.addEventListener('keyup', this.onKeyUp);
     }
 
-    /**
-	 * @param {string} url Url de l'image
-	 */
+    //load the media after the loader
 	loadImage(url) {
 		this.url = null;
 		const image = new Image();
@@ -51,11 +43,11 @@ class Lightbox {
 		image.src = url;
 	}
 
-	/**
-	 * @param {KeyboardEvent} event
-	 */
+	//keyboard navigation
 	onKeyUp(event) {
 		if (event.key === 'Escape') {
+			this.close(event);
+		} else if (event.key === 'Enter') {
 			this.close(event);
 		} else if (event.key === 'ArrowLeft') {
 			this.previous(event);
@@ -64,7 +56,7 @@ class Lightbox {
 		}
 	}
 
-	//close modal
+	//close the lightbox 
 	close(event) {
 		event.preventDefault();
 		this.element.classList.add('fadeOut');
@@ -79,11 +71,11 @@ class Lightbox {
 		event.preventDefault();
 		console.log(this.images)
 		console.log(this.url)
-		let i = this.images.findIndex(image => image === this.url);/*recup la nouvelle image à telecharger*/
+		let i = this.images.findIndex(image => image === this.url);
 		if (i === this.images.length - 1) {
 			i = -1
 		}
-		this.loadImage(this.images[i + 1]);/*chargé la nouvelle image*/
+		this.loadImage(this.images[i + 1]);
 	}
 
 	
@@ -97,7 +89,9 @@ class Lightbox {
 		this.loadImage(this.images[i - 1]);
 	}
 
-    //html part
+
+	//call media link
+	//send x return an html element
 	buildDOM() {
 		const dom = document.createElement('div');
 		dom.classList.add('lightbox');
