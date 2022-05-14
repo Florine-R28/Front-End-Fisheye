@@ -82,25 +82,26 @@ function validateForm() {
   isValidForm = checkLastNameValidity();
   isValidForm = checkEmailValidity();
 
-  return isValidForm();
+  return isValidForm;
 }
 
 // Send form x empty it, with inputs values in the console
-function sendForm() { 
+/*function sendForm() { 
   const closeConfirmButton = document.getElementById('closeForm');
     closeConfirmButton.addEventListener("click", function (event) {
       event.preventDefault();
-      console.log(
-        `L'utilisateur ${firstName.value} ${lastName.value} avec l'adresse mail suivante ${emailValid.value} vous adresse le message suivant : ${messageSend.value}`
-      );
+     
       closeConfirmButton.style.display = "none";
   });
-}
+}*/
 
-document.getElementById("contact_modal").addEventListener("submit", function () {
+document.getElementById("inscription").addEventListener("submit", function () {
   if (validateForm()) {
     sendForm(); 
     displayModal.reset();
     closeModal();
+    console.log(
+      `L'utilisateur ${firstName.value} ${lastName.value} avec l'adresse mail suivante ${emailValid.value} vous adresse le message suivant : ${messageSend.value}`
+    );
   }
 })

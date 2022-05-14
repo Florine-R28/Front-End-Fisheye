@@ -18,7 +18,7 @@ function mediaFactory(mediaData) {
         linkElement.setAttribute('tabindex', 0);
       
         //condition if it is an image or a video
-        if (image /*== undefined*/) { 
+        if (image) { 
             //linkElement.setAttribute('href', `assets/Sample Photos/${photographerId}/${image}`);
             const img = document.createElement('img');
             img.classList.add('photo_gallery');
@@ -69,14 +69,18 @@ function mediaFactory(mediaData) {
         heart.classList.add('fas');
         heart.classList.add('fa-heart');
         heart.setAttribute("aria-label", "likes");
-        heart.setAttribute("role", "button"); 
-        heart.addEventListener('click', function(){
+        heart.setAttribute("role", "button");
+
+        function addHeart() {
             mediaData.likes = mediaData.likes > likes ? mediaData.likes-1 : mediaData.likes+1;
             const numberLikes = document.getElementById(`numberLikes-${id}`);
             numberLikes.innerText = mediaData.likes;
             // eslint-disable-next-line no-undef
-            updateTotalLikes( mediaData.likes > likes ? "add" :"less");
-        })
+            updateTotalLikes( mediaData.likes > likes ? "add" :"less"); 
+        }
+        heart.addEventListener('click', addHeart());
+        heart.addEventListener('keyup', addHeart());
+
 
         likesElement.appendChild(heart);
         textPhoto.appendChild(likesElement);
