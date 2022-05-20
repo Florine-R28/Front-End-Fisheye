@@ -7,11 +7,12 @@ const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const messageSend = document.getElementById("message");
 
-function displayModal() {
+function displayModal(name) {
   const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
-  //focus
   firstName.focus();
+  const contactPhotographer = document.getElementById("contact_photographer");
+  contactPhotographer.textContent = name;
 }
 
 function closeModal() {
@@ -85,23 +86,18 @@ function validateForm() {
   return isValidForm;
 }
 
-// Send form x empty it, with inputs values in the console
-/*function sendForm() { 
-  const closeConfirmButton = document.getElementById('closeForm');
-    closeConfirmButton.addEventListener("click", function (event) {
-      event.preventDefault();
-     
-      closeConfirmButton.style.display = "none";
-  });
-}*/
+//Send form x empty it, with inputs values in the console
+function sendForm() { 
+  console.log(
+    `L'utilisateur ${firstName.value} ${lastName.value} avec l'adresse mail suivante ${emailValid.value} vous adresse le message suivant : ${messageSend.value}`
+  );
+}
 
-document.getElementById("inscription").addEventListener("submit", function () {
+const formElement = document.getElementById("inscription");
+formElement.addEventListener("submit", function () {
   if (validateForm()) {
     sendForm(); 
-    displayModal.reset();
+    formElement.reset();
     closeModal();
-    console.log(
-      `L'utilisateur ${firstName.value} ${lastName.value} avec l'adresse mail suivante ${emailValid.value} vous adresse le message suivant : ${messageSend.value}`
-    );
   }
 })

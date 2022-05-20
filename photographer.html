@@ -13,7 +13,7 @@
     <!--header-->
     <header class="header">
       <a id="logo" aria-label="Fisheye" href="index.html" title="Lien vers la page d'accueil">
-        <img alt="Logo Fisheye" class="logo_top" src="assets/images/logo.png" aria-label="retour"/>
+        <img alt="Fisheye Home page" class="logo_top" src="assets/images/logo.png" aria-label="retour"/>
       </a>
     </header>
 
@@ -48,13 +48,14 @@
     </main>
 
     <!--contact modal-->
-    <section id="contact_modal" role="dialog" aria-label="contact-modal" aria-hidden="true">
-      <div >
-			  <div class="modal">
-				  <header aria-label="contact form header">
-            <h2>Contactez-moi<br/>`${id}`</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" role="button" alt="Fermer"/>
-          </header>
+    <div id="contact_modal" role="dialog"  aria-hidden="true">
+			<div class="modal">
+				<header aria-label="contact me" aria-labelledby="2">
+          <h1 class="contact_me">Contactez-moi<br/>
+            <span id="contact_photographer"></span>
+          </h1>
+            <img src="assets/icons/close_modal.svg" onclick="closeModal()" role="button" aria-label="fermer le formulaire" alt="Fermer"/>
+        </header>
 
 				<form 
           id="inscription"
@@ -74,6 +75,7 @@
                   name="first"
                   minlength="2"
                   aria-label="Entrez votre prénom"
+                  aria-labelledby="3"
                 /><br>
                 <small id="errorLabelFirst" class ="small">
                   Veuillez entrer 2 caractères ou plus pour le champ du prénom.
@@ -88,6 +90,7 @@
                   name="last"
                   minlength="2"
                   aria-label="Entrez votre nom"
+                  aria-labelledby="5"
                 /><br>
                 <small id="errorLabelLast" class ="small">
                   Veuillez entrer 2 caractères ou plus pour le champ du nom.
@@ -101,6 +104,7 @@
                   id="email"
                   name="email"
                   aria-label="Vous devez entrer une adresse email valide"
+                  aria-labelledby="7"
                 /><br>
                 <small id="errorLabelMail" class="small">
                   Veuillez entrer une adresse valide. Exemple : contact@nom.com
@@ -114,7 +118,8 @@
                   name="message"
                   rows="10"
                   cols="100"
-                  aria-label="Vous pouvez écrire un message">
+                  aria-label="Vous pouvez écrire un message"
+                  aria-labelledby="9">
                 </textarea>
             </div>
 					</div>

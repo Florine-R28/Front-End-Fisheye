@@ -54,6 +54,7 @@
     cursor: pointer;
 	transition: opacity 0.3s;
     text-indent: -10000px;
+    margin: 00px 80px 0px 80px;
 }
 
 .lightbox button:hover {
@@ -79,8 +80,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-left: 50px;
-    margin-right: 50px;
+    padding: 80px;
+    margin: 40px 80px 40px 80px;
     min-height: 100vh;
     padding: 0rem;
     text-align: center;

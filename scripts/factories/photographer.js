@@ -13,7 +13,7 @@ function photographerFactory(photographerData) {
 
         const patternHomePage = `
             <a href='photographer.html?id=${id}'>
-                <img class="photographer_img" alt="" src="assets/photographers/${portrait}">
+                <img class="photographer_img photographer_img_link" alt="" src="assets/photographers/${portrait}">
             </a>
                 <h2 class="photographer_name">${name}</h2>
 
@@ -40,13 +40,13 @@ function photographerFactory(photographerData) {
                         <p class="photograph_tagline">${tagline}</p>
                     </div>
                     <div class="contact_photographer">
-                        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+                        <button class="contact_button" onclick="displayModal('${name}')" aria-label="Contact Me">Contactez-moi</button>
                     </div>
                 </div>
             </div>
 
             <div class="img_frame">
-                <a><img class="photographer_img" alt="" src="assets/photographers/${portrait}"/></a>
+                <img class="photographer_img" alt="" src="assets/photographers/${portrait}"/>
             </div>
         `
         return patternPhotographerPage;

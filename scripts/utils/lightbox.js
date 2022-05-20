@@ -5,13 +5,13 @@ class Lightbox {
 	//static (allows to initialize the lightbox x allows to define a static method of a class)
     static init() {
 		//select all links that lead to photos/videos
-        const links = Array.from(document.querySelectorAll('.photo_gallery'));
-        const gallery = links.map(link => link.getAttribute('src'));
+        const links = Array.from(document.querySelectorAll(".mediaLink"));
+        const gallery = links.map(link => link.getAttribute("href"));
 
         links.forEach(link => {
 			link.addEventListener("click", event => {
             	event.preventDefault();
-            	new Lightbox(link.getAttribute('src'), gallery);
+            	new Lightbox(link.getAttribute('href'), gallery);
             })
 		});
     }
@@ -30,7 +30,7 @@ class Lightbox {
 	loadImage(url) {
 		this.url = null;
 		const image = new Image();
-		const container = this.element.querySelector(".lightbox_container");
+		const container = document.querySelector(".lightbox_container") || this.element.querySelector(".lightbox_container");
 		const loader = document.createElement('div');
 		loader.classList.add('lightbox_loader');
 		container.innerHTML = '';
@@ -38,6 +38,7 @@ class Lightbox {
 		image.onload = () => {
 			container.removeChild(loader)
 			container.appendChild(image)
+			container.appendChild(document.createElement('div'))
 			this.url = url 
 		}
 		image.src = url;
@@ -46,8 +47,6 @@ class Lightbox {
 	//keyboard navigation
 	onKeyUp(event) {
 		if (event.key === 'Escape') {
-			this.close(event);
-		} else if (event.key === 'Enter') {
 			this.close(event);
 		} else if (event.key === 'ArrowLeft') {
 			this.previous(event);
@@ -69,8 +68,6 @@ class Lightbox {
 	//switch to the next image
 	next(event) {
 		event.preventDefault();
-		console.log(this.images)
-		console.log(this.url)
 		let i = this.images.findIndex(image => image === this.url);
 		if (i === this.images.length - 1) {
 			i = -1
@@ -78,7 +75,6 @@ class Lightbox {
 		this.loadImage(this.images[i + 1]);
 	}
 
-	
 	//switch to the previous image
 	previous(event) {
 		event.preventDefault();
@@ -95,9 +91,9 @@ class Lightbox {
 	buildDOM() {
 		const dom = document.createElement('div');
 		dom.classList.add('lightbox');
-		dom.innerHTML = `<button id="lightbox_close" class="lightbox_close" role="button" aria-label="fermer le formulaire">Close</button>
-		<button class="lightbox_next" role="button" aria-label="media suivante">Next</button>
-		<button class="lightbox_previous" role="button" aria-label="media précédente">Previous</button>
+		dom.innerHTML = `<button id="lightbox_close" class="lightbox_close" role="button" aria-label="fermer la lightbox">Close</button>
+		<button class="lightbox_next" role="button" aria-label="image suivante">Next</button>
+		<button class="lightbox_previous" role="button" aria-label="image précédente">Previous</button>
 		<div class="lightbox_container" role="dialog">
 		</div>`;
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
