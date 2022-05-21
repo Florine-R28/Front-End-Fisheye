@@ -16,7 +16,7 @@
 .lightbox_next,
 .lightbox_previous {
     border: none;
-    background: url(../assets/icons/arrow.svg) center center / 36px 64px no-repeat  ;
+    background: url(../assets/icons/arrow.svg) center center / 100% 100% no-repeat  ;
     width: 36px;
     height: 100%;
     position: fixed;
@@ -39,13 +39,13 @@
 }
 
 .lightbox_close {
-    background: url(../assets/icons/close.svg) center center / 40px 40px no-repeat transparent;
+    background: url(../assets/icons/close.svg) center center / 100% 100% no-repeat transparent;
     width: 40px;
     height: 40px;
     border: none;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 8.5%;
+    right: 0;
     z-index: 12;
 }
 
@@ -54,7 +54,7 @@
     cursor: pointer;
 	transition: opacity 0.3s;
     text-indent: -10000px;
-    margin: 00px 80px 0px 80px;
+    margin: 0% 10% 0% 10%;
 }
 
 .lightbox button:hover {
@@ -64,24 +64,27 @@
 .lightbox_container img {
     animation: lightboxIn 0.5s;
 	object-fit: cover;
-    max-width: 100%;
-    max-height: 100vh;
+    width: 700px;
+	height: 700px;
 }
 
 .lightbox_container video {
     animation: lightboxIn 0.5s;
 	object-fit: cover;
-    max-width: 100%;
-    max-height: 100vh;
+    width: 700px;
+	height: 700px
 }
+
+/*.lightbox_legend {
+    color: #901C1C;
+}*/
 
 .lightbox_container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 80px;
-    margin: 40px 80px 40px 80px;
+    margin: 3% 10% 3% 10%;
     min-height: 100vh;
     padding: 0rem;
     text-align: center;
@@ -107,20 +110,3 @@
 	from {opacity: 0;}
 	to {opacity: 1;}
 }
-
-/*Large devices (desktops, 992px and up)
-@media (min-width: $mediumdevices) {
-	.lightbox_container img
-    .lightbox_container video  {
-			height: 450px;
-			width: 800px;
-	}
-}
-
-@media (min-width: $largedevices) {
-	.lightbox_container img
-    .lightbox_container video  {
-			height: 550px;
-			width: 1000px;
-	}
-}*/

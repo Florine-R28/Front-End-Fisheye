@@ -36,9 +36,11 @@ class Lightbox {
 		container.innerHTML = '';
 		container.appendChild(loader);
 		image.onload = () => {
-			container.removeChild(loader)
-			container.appendChild(image)
-			container.appendChild(document.createElement('div'))
+			container.removeChild(loader);
+			container.appendChild(image);
+			container.appendChild(/*const legendMedia =*/ document.createElement('div'));
+			/*container.appendChild(legendMedia.classList.add('lightbox_legend'));
+			container.appendChild(legendMedia.setAttribute('alt', `title`));*/
 			this.url = url 
 		}
 		image.src = url;
