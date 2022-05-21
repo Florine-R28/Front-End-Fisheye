@@ -66,13 +66,15 @@
 	object-fit: cover;
     width: 700px;
 	height: 700px;
+    box-shadow: 10px 2px 5px 0px rgb(211 211 211);
 }
 
 .lightbox_container video {
     animation: lightboxIn 0.5s;
 	object-fit: cover;
     width: 700px;
-	height: 700px
+	height: 700px;
+    box-shadow: 10px 2px 5px 0px rgb(211 211 211);
 }
 
 /*.lightbox_legend {
@@ -93,7 +95,7 @@
 .lightbox_loader {
 	background: url(../assets/icons/loader.svg) center center no-repeat;
 	height: 40px;
-	opacity: 0.4;
+	opacity: 0.5;
 	width: 40px;
 }
 

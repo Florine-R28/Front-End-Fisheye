@@ -30,6 +30,7 @@ class Lightbox {
 	loadImage(url) {
 		this.url = null;
 		const image = new Image();
+		/*const video = new url();*/
 		const container = document.querySelector(".lightbox_container") || this.element.querySelector(".lightbox_container");
 		const loader = document.createElement('div');
 		loader.classList.add('lightbox_loader');
@@ -44,6 +45,15 @@ class Lightbox {
 			this.url = url 
 		}
 		image.src = url;
+
+		/*video.onload = () => {
+			container.removeChild(loader);
+			container.appendChild(video);
+			container.appendChild(const legendMedia = document.createElement('div'));
+			container.appendChild(legendMedia.classList.add('lightbox_legend'));
+			container.appendChild(legendMedia.setAttribute('alt', `title`));
+			this.url = url 
+		}*/
 	}
 
 	//keyboard navigation

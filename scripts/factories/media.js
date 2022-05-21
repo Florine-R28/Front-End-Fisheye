@@ -31,8 +31,9 @@ function mediaFactory(mediaData) {
             const source = document.createElement('source');
             source.setAttribute('src', `assets/Sample Photos/${photographerId}/${video}`)
             const videoElement = document.createElement('video');
+            videoElement.setAttribute('id', `controls`);/*ce n'est pas un id donc ? what this ?*/
             videoElement.classList.add('photo_gallery');
-            videoElement.setAttribute('alt', title);
+            videoElement.setAttribute('alt', `title`);
             videoElement.appendChild(source);
             linkElement.appendChild(videoElement);
         } 
