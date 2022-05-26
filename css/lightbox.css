@@ -44,7 +44,7 @@
     height: 40px;
     border: none;
     position: fixed;
-    top: 8.5%;
+    top: 4%;
     right: 0;
     z-index: 12;
 }
@@ -77,19 +77,20 @@
     box-shadow: 10px 2px 5px 0px rgb(211 211 211);
 }
 
-/*.lightbox_legend {
+.lightbox_legend {
     color: #901C1C;
-}*/
+    padding: 5px;
+}
 
 .lightbox_container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 3% 10% 3% 10%;
+    margin: 1% 10% 3% 10%;
     min-height: 100vh;
     padding: 0rem;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .lightbox_loader {

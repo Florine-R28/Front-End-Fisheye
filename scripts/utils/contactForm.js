@@ -13,6 +13,13 @@ function displayModal(name) {
   firstName.focus();
   const contactPhotographer = document.getElementById("contact_photographer");
   contactPhotographer.textContent = name;
+
+  //keyboard navigation
+  modal.addEventListener("keydown", function (event) {
+    if (event.key === 'Escape') {
+      closeModal(); 
+    }
+  })
 }
 
 function closeModal() {

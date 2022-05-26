@@ -16,6 +16,9 @@ function displayMedias(medias){
 
 		totalLikes = medias[i].likes + totalLikes; 
 	}
+	//lightbox call
+	// eslint-disable-next-line no-undef
+	Lightbox.init();
 }
 
 //initialize page content
@@ -59,9 +62,6 @@ async function init() {
 	<p id="totalLikesGlobal" aria-label="total des likes et prix par jour">${totalLikes}</p><i class="fas fa-heart"></i>
     <p>${selectedPhotographerData.price}/jour</p>
 	`
-	//lightbox call
-	// eslint-disable-next-line no-undef
-	Lightbox.init();
 
 	//call the information section of the photographer in factories/photographer.js
 	const selectedPhotographers = document.getElementById("photograph_identity");

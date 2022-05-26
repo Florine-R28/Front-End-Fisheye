@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 //create a lightbox 
 //class (memorize properties and keep the state of the box)
 // eslint-disable-next-line no-unused-vars
@@ -7,20 +8,26 @@ class Lightbox {
 		//select all links that lead to photos/videos
         const links = Array.from(document.querySelectorAll(".mediaLink"));
         const gallery = links.map(link => link.getAttribute("href"));
+		const legendMedias = Array.from(document.querySelectorAll(".titlePhoto"));
 
-        links.forEach(link => {
+        links.forEach((link, index) => {
 			link.addEventListener("click", event => {
             	event.preventDefault();
-            	new Lightbox(link.getAttribute('href'), gallery);
+            	new Lightbox(link.getAttribute('href'), gallery, legendMedias[index].textContent);
             })
 		});
     }
 
 	//create and initialize an object when using the class keyword.
-    constructor(url, images) {
+    constructor(url, images, legend) {
         this.element = this.buildDOM(url);
 		this.images = images;
-		this.loadImage(url); 
+		this.legend = legend; 
+		if (url.includes("jpg")) {
+			this.loadImage(url);
+		} else {
+			this.loadVideo(url);
+		}	 
 		this.onKeyUp = this.onKeyUp.bind(this);
 		document.body.appendChild(this.element);
 		document.addEventListener('keyup', this.onKeyUp);
@@ -30,7 +37,6 @@ class Lightbox {
 	loadImage(url) {
 		this.url = null;
 		const image = new Image();
-		/*const video = new url();*/
 		const container = document.querySelector(".lightbox_container") || this.element.querySelector(".lightbox_container");
 		const loader = document.createElement('div');
 		loader.classList.add('lightbox_loader');
@@ -39,21 +45,33 @@ class Lightbox {
 		image.onload = () => {
 			container.removeChild(loader);
 			container.appendChild(image);
-			container.appendChild(/*const legendMedia =*/ document.createElement('div'));
-			/*container.appendChild(legendMedia.classList.add('lightbox_legend'));
-			container.appendChild(legendMedia.setAttribute('alt', `title`));*/
+			const legendMedia = document.createElement('div');
+			legendMedia.classList.add('lightbox_legend');
+			legendMedia.setAttribute('alt', `legende`);
+			legendMedia.innerText = this.legend;
+			container.appendChild(legendMedia);
 			this.url = url 
 		}
 		image.src = url;
+	}
 
-		/*video.onload = () => {
-			container.removeChild(loader);
-			container.appendChild(video);
-			container.appendChild(const legendMedia = document.createElement('div'));
-			container.appendChild(legendMedia.classList.add('lightbox_legend'));
-			container.appendChild(legendMedia.setAttribute('alt', `title`));
+	loadVideo (url) {
+		this.url = null;
+        const source = document.createElement('source');
+        source.setAttribute('src', url)
+        const videoElement = document.createElement('video');
+        videoElement.setAttribute('controls', true);
+        videoElement.setAttribute('alt', this.legend);
+        videoElement.appendChild(source);
+		const container = document.querySelector(".lightbox_container") || this.element.querySelector(".lightbox_container");
+		container.innerHTML = '';
+		container.appendChild(videoElement);
+		const legendMedia = document.createElement('div');
+			legendMedia.classList.add('lightbox_legend');
+			legendMedia.setAttribute('alt', `legende`);
+			legendMedia.innerText = this.legend;
+			container.appendChild(legendMedia);
 			this.url = url 
-		}*/
 	}
 
 	//keyboard navigation
@@ -84,7 +102,11 @@ class Lightbox {
 		if (i === this.images.length - 1) {
 			i = -1
 		}
-		this.loadImage(this.images[i + 1]);
+		if (this.images[i + 1].includes("jpg")) {
+			this.loadImage(this.images[i + 1]);
+		} else {
+			this.loadVideo(this.images[i + 1]);
+		}
 	}
 
 	//switch to the previous image
@@ -94,7 +116,11 @@ class Lightbox {
 		if (i === 0) {
 			i = this.images.length;
 		}
-		this.loadImage(this.images[i - 1]);
+		if (this.images[i - 1].includes("jpg")) {
+			this.loadImage(this.images[i - 1]);
+		} else {
+			this.loadVideo(this.images[i - 1]);
+		}
 	}
 
 

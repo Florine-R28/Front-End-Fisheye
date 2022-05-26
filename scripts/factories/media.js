@@ -47,6 +47,7 @@ function mediaFactory(mediaData) {
 
         //title
         const titlePhoto = document.createElement('h3');
+        titlePhoto.classList.add('titlePhoto');
         titlePhoto.setAttribute('aria-label', "titre");
         titlePhoto.innerText = title;
         textPhoto.appendChild(titlePhoto);

@@ -88,7 +88,7 @@ a:link {
 	flex-wrap: wrap;
 	margin-left: 20px;
 	margin-right: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
     color: #901C1C;
 }
 
