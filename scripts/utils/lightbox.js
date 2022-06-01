@@ -13,16 +13,17 @@ class Lightbox {
         links.forEach((link, index) => {
 			link.addEventListener("click", event => {
             	event.preventDefault();
-            	new Lightbox(link.getAttribute('href'), gallery, legendMedias[index].textContent);
+            	new Lightbox(link.getAttribute('href'), gallery, legendMedias[index].textContent, legendMedias);
             })
 		});
     }
 
 	//create and initialize an object when using the class keyword.
-    constructor(url, images, legend) {
+    constructor(url, images, legend, legendMedias) {
         this.element = this.buildDOM(url);
 		this.images = images;
-		this.legend = legend; 
+		this.legend = legend;
+		this.legendMedias = legendMedias;
 		if (url.includes("jpg")) {
 			this.loadImage(url);
 		} else {
@@ -42,6 +43,7 @@ class Lightbox {
 		loader.classList.add('lightbox_loader');
 		container.innerHTML = '';
 		container.appendChild(loader);
+		image.classList.add('media_container');
 		image.onload = () => {
 			container.removeChild(loader);
 			container.appendChild(image);
@@ -63,6 +65,7 @@ class Lightbox {
         videoElement.setAttribute('controls', true);
         videoElement.setAttribute('alt', this.legend);
         videoElement.appendChild(source);
+		videoElement.classList.add('media_container');
 		const container = document.querySelector(".lightbox_container") || this.element.querySelector(".lightbox_container");
 		container.innerHTML = '';
 		container.appendChild(videoElement);
@@ -102,6 +105,7 @@ class Lightbox {
 		if (i === this.images.length - 1) {
 			i = -1
 		}
+		this.legend = this.legendMedias[i + 1].textContent;
 		if (this.images[i + 1].includes("jpg")) {
 			this.loadImage(this.images[i + 1]);
 		} else {
@@ -114,8 +118,9 @@ class Lightbox {
 		event.preventDefault();
 		let i = this.images.findIndex(image => image === this.url);
 		if (i === 0) {
-			i = this.images.length;
+			i = this.images.length;	
 		}
+		this.legend = this.legendMedias[i - 1].textContent;
 		if (this.images[i - 1].includes("jpg")) {
 			this.loadImage(this.images[i - 1]);
 		} else {
